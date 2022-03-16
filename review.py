@@ -39,7 +39,7 @@ class PullRequest:
         self.pr_number = pr_number
         self.token = token
 
-        github = Github(token)
+        github = Github(base_url="https://github.rbx.com/api/v3", login_or_token=token) #github.rbx enterprise APIs not github.com
         repo_object = github.get_repo(f"{repo}")
         self._pull_request = repo_object.get_pull(pr_number)
 
